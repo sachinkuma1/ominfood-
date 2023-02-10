@@ -91,11 +91,15 @@ body{
     line-height: 1;
     font-weight:400;
     color: #555;
+    /* it is used for making navbar and hiding overflowing 
+    content in x direction */
+    overflow-x: hidden;
 }
 
 html{
     /* font-size:10px; */
     font-size:62.5%;
+    overflow-x: hidden;
 }
 
 /*--------************ header-------------- */
@@ -199,11 +203,7 @@ html{
   padding:4.8rem;
 }
 
-@media (max-width:900px){
-  .section-hero{
-    border: 4px solid blue;
-  }
-}
+
 
 
 
@@ -403,7 +403,6 @@ position: relative;
 
 .section-meals{
   padding:9.6rem;
-  
 }
 
 .meal-image{
@@ -765,9 +764,221 @@ font-weight: 600;
 
 .footer{
   padding: 9.6rem 0;
+} 
+
+@media (max-width:68rem){
+  .start-eating-well-menu .margin-right{
+    padding:1.4rem;
+    font-size:1.4rem;
+  }
+  .woman-image{
+    width:90%;
+  }
+
+  html{
+    font-size:56.25%;
+  }
+
+  .container{
+    margin:0 0;
+    gap:2.4rem;
+  }
+  .grid{
+    gap:2.4rem;
+  }
+
+  .section-hero{
+    padding:0;
+  }
+  .hero{
+    gap:0;
+  }
+
+  .heading-primary{
+    font-size:3.6rem;
+  }
+
+
+}
+@media(max-width:60rem){
+  html{
+    font-size:50%;
+  }
+  .woman-image{
+    width:80%;
+    margin-left:2.4rem;
+  }
+  .logos{
+    height:1.8rem;
+  }
+
+  .meal-content{
+    padding-bottom:0;
+  }
+
+
+
 }
 
+@media(max-width:50rem){
+  .hero{
+    grid-template-columns: 1fr;
+    gap:1.2rem;
+  }
+  .hero-img{
+    text-align:center;
+    }
+  .woman-image{
+    width:60%;
+    margin-bottom:4.8rem;
+  }
+  .button-ka-cover{
+    display:flex;
+    justify-content: center;
+
+  }
+  .delivered-images{
+    margin-bottom:3.6rem;
+  }
+  .delivered-meals{
+    justify-content: center;
+  }
+  .hero-text{
+    text-align:center;
+  }
+  /* .hero-text{
+    
+    justify-content: center;
+    padding:2.4rem;
+  } */
+  .logos img{
+    height:2.8rem;
+  }
+
+  .grid-2-cols{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* padding-bottom:3.6rem; */
+  }
+  .meal-attributes{
+    margin-bottom: 4.8rem;
+  }
+  .meal-attribute:last-child{
+    grid-column:1/-1;
+       justify-content: center;
+  }
+  .grid2-cols{
+    grid-template-columns: 1fr 1fr;
+    gap:3.6rem;
+  }
+  
+}
+
+@media(max-width:49rem){
+
+  .section-pricing{
+    padding:0;
+  
+  }
+  .logos img{
+    height: 2.4rem;
+  }
+  .step-no{
+    font-size:6.4rem;
+  }
+}
+
+@media(max-width:43rem){
+  .diets{
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+  .section-testimonial{
+    grid-template-columns: 1fr;
+  }
+  .gallery{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .cta{
+    grid-template-columns: 3fr 2.5fr;
+  }
+  .cta-form{
+    grid-template-columns: 1fr;
+  }
+}
+
+  
+/* ----------------------mobile -----view--------------------- */
+
+ .btn-mobile-nav{
+  border:none;
+  background:none;
+  cursor:pointer;
+  display: none;
+ }
+ .icon-mobile-nav{
+  height:2.4rem;
+  width:2.4rem;
+  color:#333;
+
+ }
+
+ /* select on the basis of name attribute  */
+ .icon-mobile-nav[name="close-outline"]{
+  display:none;
+ }
+
+ @media(max-width:45rem){
+  /* mobile navigation */
+  .btn-mobile-nav{
+    display: block;
+  }
+  .main-nav{
+    background-color: white;
+    position:absolute;
+    top:0;
+    right:0;
+    width:100%;
+    height: 100vh;
+    /* display:none doesnt allow any transtion */
+    /* display: none; */
+    /* opacity 0 is to visually hide  it is actully present there but not visible
+    but display:none actually remove from there*/
+    opacity: 0;
+    /* make it unaccesible to mouse  using pointer events*/
+    pointer-events: none;
+
+    /* to hide from screen reader */
+    visibility:hidden;
+    transition: all 0.5s;
+    transform:translateX(100%);
+  }
+  .main-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-nav-list{
+    display:flex;
+    flex-direction: column;
+  }
+  .main-nav-list .main-nav-link{
+    font-size:3.6rem;
+  }
+  .nav-open .main-nav{
+    opacity:1;
+    pointer-events: auto;
+    visibility: visible;
+    transform:translateX(0);
+  }
+
+  /* it is used to show close menu when navbar is open */
+  .nav-open .icon-mobile-nav[name="close-outline"]{
+    display:block;
+   }
+  .nav-open .icon-mobile-nav[name="menu-outline"]{
+    display:none;
+   }
 
 
-
-
+ }
